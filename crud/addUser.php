@@ -11,32 +11,20 @@ include('query.php');
 </head>
 <body>
     <div class="container p-4">
-    <?php
-    if(isset($_GET['uid'])){
-            $uId = $_GET['uid'];
-            $query = $pdo->prepare("select * from users where id = :id");
-            $query->bindParam('id',$uId);
-            $query->execute();
-            $user = $query->fetch(PDO::FETCH_ASSOC);
-            // print_r($user);
-            
-    }
-    ?>
                 <form action="" method="post">
                     <div class="form-group">
                       <label for="">Name</label>
-                      <input type="text" name="uName" value="<?php echo $user['name']?>" id="" class="form-control" >
-                      <input type="hidden" name="uid" value="<?php echo $user['id']?>" >
+                      <input type="text" name="uName" id="" class="form-control" >
                     </div>
                     <div class="form-group">
                       <label for="">Email</label>
-                      <input type="text" name="uEmail" value="<?php echo $user['email']?>" id="" class="form-control" >
+                      <input type="text" name="uEmail" id="" class="form-control" >
                     </div>
                     <div class="form-group">
                       <label for="">Password</label>
-                      <input type="text" name="uPassword" value="<?php echo $user['password']?>" id="" class="form-control" >
+                      <input type="text" name="uPassword" id="" class="form-control" >
                     </div>
-                    <button class="btn btn-info" type="submit" name="updateUser">update</button>
+                    <button class="btn btn-info" type="submit" name="addUser">Add</button>
                 </form>
     </div>
 </body>
